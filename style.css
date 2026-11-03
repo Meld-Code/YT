@@ -1680,3 +1680,309 @@ body.guide-collapsed .page { transition: margin-left .15s ease; }
 
 /* clickable Shorts poster */
 .short-frame[data-playing="0"] { cursor: pointer; }
+
+/* different colors */
+
+/* =========================================================================
+Dark graphite + green theme
+Paste at the end of style.css. Keeps existing layout and behavior.
+========================================================================= */
+:root,
+:root[data-theme="dark"] {
+color-scheme: dark;
+--bg: #101210;
+--bg-elev: #191c19;
+--bg-menu: #191c19;
+--bg-hover: #222622;
+--bg-active: #2a302a;
+--bg-chip: #222622;
+--bg-chip-active: #76b900;
+--chip-active-text: #10150a;
+--bg-input: #171a17;
+--bg-search-btn: #222622;
+--bg-skeleton: #1b201b;
+--bg-skeleton-shine: #293129;
+--text: #f2f5f0;
+--text-2: #9ca69b;
+--text-3: #788174;
+--text-on-light: #10150a;
+--border: #303730;
+--border-2: #465046;
+--red: #ff626e;
+--blue: #a3e635;
+--green: #76b900;
+--scrim: rgba(0, 0, 0, .68);
+--shadow-menu: 0 12px 36px rgba(0, 0, 0, .48);
+--shadow-modal: 0 24px 56px rgba(0, 0, 0, .58);
+--thumb-bg: #191c19;
+--badge-bg: rgba(5, 7, 5, .86);
+--live: #ff626e;
+--hover-wash: rgba(163, 230, 53, .08);
+--green-light: #a3e635;
+--surface: #191c19;
+--surface2: #222622;
+--surface3: #2a302a;
+--radius: 12px;
+}
+:root[data-theme="light"] {
+color-scheme: light;
+--bg: #f5f7f3;
+--bg-elev: #ffffff;
+--bg-menu: #ffffff;
+--bg-hover: #edf1e9;
+--bg-active: #e2ead9;
+--bg-chip: #e9eee5;
+--bg-chip-active: #76b900;
+--chip-active-text: #10150a;
+--bg-input: #ffffff;
+--bg-search-btn: #edf1e9;
+--bg-skeleton: #e5e9e1;
+--bg-skeleton-shine: #f2f5ef;
+--text: #171b16;
+--text-2: #596255;
+--text-3: #788174;
+--text-on-light: #10150a;
+--border: #d9dfd4;
+--border-2: #c6cec0;
+--red: #c93642;
+--blue: #4d790d;
+--green: #5f9700;
+--scrim: rgba(12, 16, 11, .48);
+--shadow-menu: 0 12px 36px rgba(25, 35, 19, .16);
+--shadow-modal: 0 24px 56px rgba(25, 35, 19, .22);
+--thumb-bg: #e5e9e1;
+--badge-bg: rgba(5, 7, 5, .86);
+--hover-wash: rgba(75, 110, 35, .07);
+--green-light: #4d790d;
+--surface: #ffffff;
+--surface2: #edf1e9;
+--surface3: #e2ead9;
+--radius: 12px;
+}
+html { scroll-behavior: smooth; }
+body {
+background:
+radial-gradient(ellipse at 50% -30%, rgba(69, 96, 45, .3) 0, transparent 55%),
+var(--bg);
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+line-height: 1.5;
+}
+::selection { background: rgba(118, 185, 0, .35); }
+:focus-visible {
+outline-color: var(--green-light);
+outline-offset: 3px;
+}
+.loader i {
+background: var(--green);
+box-shadow: 0 0 12px rgba(118, 185, 0, .7);
+}
+.masthead {
+background: rgba(17, 20, 17, .95);
+border-bottom: 1px solid var(--border);
+backdrop-filter: blur(16px);
+}
+:root[data-theme="light"] .masthead {
+background: rgba(245, 247, 243, .94);
+}
+.icon-btn.on { color: var(--green-light); }
+.icon-btn:focus-visible,
+.search-submit:focus-visible {
+outline-color: var(--green-light);
+}
+.search-box:focus-within {
+border-color: var(--green);
+box-shadow: 0 0 0 3px rgba(118, 185, 0, .12);
+}
+.search-box { border-radius: 9px 0 0 9px; }
+.search-submit { border-radius: 0 9px 9px 0; }
+.suggest { border-radius: 10px; }
+.suggest-section button { color: var(--green-light); }
+.side-item.active,
+.side-sub.active,
+.mini-item.active {
+background: rgba(118, 185, 0, .13);
+color: var(--text);
+}
+.side-item.active .side-icon { color: var(--green-light); }
+.chip,
+.chips-wrap .filters-btn,
+.chips-arrow {
+border-radius: 9px;
+}
+.chip.active {
+background: var(--green);
+color: #10150a;
+}
+.chip:hover,
+.chips-wrap .filters-btn:hover,
+.chips-arrow:hover {
+background: var(--surface3);
+}
+.section-head .section-link,
+.shelf-head .shelf-link,
+.stale-bar button,
+.desc-text a,
+.desc-hashtags,
+.comment-text a,
+.comment-replies-btn,
+.about-link,
+.notif-foot a,
+.search-summary b,
+.lib-meta a:hover {
+color: var(--green-light);
+}
+.card .thumb,
+.short-thumb,
+.pl-thumb,
+.compact-thumb,
+.lib-thumb,
+.channel-banner,
+.playlist-cover-lg {
+border-radius: 10px;
+}
+.card:hover .thumb img,
+.short-card:hover .short-thumb img {
+filter: brightness(1.07);
+}
+.thumb .progress i,
+.lib-thumb .progress i {
+background: var(--green);
+}
+.thumb .badge.live { background: var(--red); }
+.shelf-title .icon,
+.feed-title .icon,
+.related-shorts h3 .icon {
+color: var(--green-light);
+}
+.shelf-arrow {
+background: var(--surface);
+border: 1px solid var(--border);
+}
+.ch-card,
+.you-card,
+.set-group,
+.error-box {
+border-color: var(--border);
+}
+.ch-card:hover,
+.lib-row:hover,
+.local-pl-row:hover {
+background: var(--bg-hover);
+}
+.subscribe-btn {
+border-radius: 9px;
+background: var(--green);
+color: #10150a;
+font-weight: 750;
+}
+.subscribe-btn:hover { background: var(--green-light); }
+.subscribe-btn.subscribed {
+background: var(--surface2);
+color: var(--text);
+}
+.subscribe-btn.subscribed:hover { background: var(--surface3); }
+.btn,
+.action-btn,
+.feed-tune,
+.bell-sub-btn {
+border-radius: 9px;
+}
+.btn-filled,
+.player-error .btn,
+.next-actions .btn-filled {
+background: var(--green);
+color: #10150a;
+}
+.btn-filled:hover,
+.player-error .btn:hover,
+.next-actions .btn-filled:hover {
+background: var(--green-light);
+}
+.btn-blue,
+.chips-wrap .filters-btn.btn-blue {
+background: var(--green);
+color: #10150a;
+}
+.btn-blue:hover,
+.chips-wrap .filters-btn.btn-blue:hover {
+background: var(--green-light);
+filter: none;
+}
+.btn-danger { color: var(--red); }
+.action-btn.liked {
+background: rgba(118, 185, 0, .18);
+color: var(--green-light);
+}
+.action-group .action-btn.liked .icon,
+.comment-like.liked,
+.rail-btn.liked .icon {
+color: var(--green-light);
+}
+.menu,
+.filter-panel,
+.modal {
+background: var(--bg-menu);
+border: 1px solid var(--border);
+border-radius: 12px;
+}
+.menu-item.danger { color: var(--red); }
+.tune-track i {
+background: var(--green);
+}
+.avatar,
+.avatar-fallback,
+.you-avatar {
+background: linear-gradient(140deg, #527d18, #8dbb42);
+}
+.notif-badge { background: var(--red); }
+.onboard {
+background:
+radial-gradient(120% 140% at 100% 0%, rgba(118, 185, 0, .15), transparent 55%),
+var(--bg-elev);
+}
+.stale-bar,
+.error-box {
+background: var(--bg-elev);
+}
+.player-shell { box-shadow: 0 18px 55px rgba(0, 0, 0, .35); }
+.play-big:hover,
+.short-play-big:hover {
+background: var(--green);
+color: #10150a;
+}
+.spinner { border-top-color: var(--green-light); }
+.switch.on { background: var(--green); }
+.modal-input:focus {
+border-color: var(--green);
+box-shadow: 0 0 0 3px rgba(118, 185, 0, .12);
+}
+.channel-banner.no-banner {
+background: linear-gradient(120deg, #24351b, #385323 45%, #65892c 100%);
+}
+.ch-tab.active { border-bottom-color: var(--green); }
+.ch-tab:hover { color: var(--green-light); }
+.short-play-big,
+.short-nav,
+.short-top-btn {
+border: 1px solid rgba(255, 255, 255, .2);
+}
+.rail-btn .rail-icon { background: rgba(20, 26, 18, .62); }
+.rail-btn:hover .rail-icon {
+background: rgba(118, 185, 0, .35);
+}
+.toast {
+border-radius: 9px;
+background: var(--surface2);
+color: var(--text);
+border: 1px solid var(--border);
+}
+.toast .toast-action { color: var(--green); }
+.toast .toast-close { color: var(--text-2); }
+.toast .toast-close:hover { background: var(--hover-wash); }
+:root[data-theme="dark"] .toast { background: var(--surface2); }
+.error-box .icon { color: var(--green-light); }
+::-webkit-scrollbar-thumb {
+background: #465046;
+border-color: var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: #65735f; }
