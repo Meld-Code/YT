@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f0f0f">
-<meta name="description" content="A YouTube-style front end powered by public YouTube data. Search, Shorts, channels, comments and a feed that learns what you like.">
+<meta name="description" content="WaveyTube is a browser video front end powered by public video data. Search, Shorts, channels, comments and a feed that learns what you like.">
 <title>MeldTube</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 20'%3E%3Crect width='28' height='20' rx='5' fill='%23f00'/%3E%3Cpath d='M11.5 14.5v-9l7.5 4.5z' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=6">
 <script>
   /* Paint the right theme before the stylesheet runs to avoid a flash. */
   try {
@@ -63,6 +63,7 @@
     <symbol id="i-fullscreen" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-theater" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 11h19" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.5h3L12 5v14l-5-4.5H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-volume-off" viewBox="0 0 24 24"><path d="M4 9.5h3L12 5v14l-5-4.5H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m15.5 9.5 5.5 5.5m0-5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-settings" viewBox="0 0 24 24"><path d="M19.1 12.9a7.6 7.6 0 0 0 0-1.8l2-1.6-1.9-3.3-2.4 1a8 8 0 0 0-1.6-.9l-.4-2.5h-3.8l-.4 2.5a8 8 0 0 0-1.6.9l-2.4-1L2.7 9.5l2 1.6a7.6 7.6 0 0 0 0 1.8l-2 1.6 1.9 3.3 2.4-1a8 8 0 0 0 1.6.9l.4 2.5h3.8l.4-2.5a8 8 0 0 0 1.6-.9l2.4 1 1.9-3.3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
     <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.3 9.2A2.8 2.8 0 0 1 14.8 10c0 1.9-2.8 2-2.8 3.8M12 17.2h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V3.5h9l1 2h4v9h-5l-1-2H5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
@@ -109,13 +110,13 @@
     <button class="icon-btn" id="menuBtn" aria-label="Guide" title="Guide">
       <svg class="icon"><use href="#i-menu"/></svg>
     </button>
-    <a class="logo" href="#/" aria-label="YouTube Home">
+    <a class="logo" href="#/" aria-label="WaveyTube Home">
       <svg class="logo-mark" viewBox="0 0 29 20" aria-hidden="true">
         <path d="M28 3.12C27.67 1.89 26.7.93 25.45.6 23.22 0 14.29 0 14.29 0S5.35 0 3.12.6C1.9.93.93 1.89.6 3.12 0 5.35 0 10 0 10s0 4.65.6 6.88c.33 1.23 1.3 2.19 2.52 2.52C5.35 20 14.29 20 14.29 20s8.93 0 11.16-.6a3.55 3.55 0 0 0 2.52-2.52C28 14.65 28 10 28 10s0-4.65-.6-6.88Z" fill="#FF0000"/>
         <path d="M11.43 14.29 18.85 10l-7.42-4.29Z" fill="#fff"/>
       </svg>
       <span class="logo-word">MeldTube</span>
-      <sup class="logo-country">made by @ItsToonyTime</sup>
+      <span class="logo-made">made by @ItsToonyTime</span>
     </a>
   </div>
 
@@ -156,7 +157,7 @@
       <span class="notif-badge hidden" id="notifBadge"></span>
     </button>
     <button class="avatar-btn" id="avatarBtn" aria-label="Account" title="Account">
-      <span class="avatar avatar-user" id="headerAvatar"><img src="Meld.png"></span>
+      <span class="avatar avatar-user" id="headerAvatar" aria-hidden="true"></span>
     </button>
   </div>
 </header>
@@ -184,9 +185,9 @@
 <div id="toastRoot" class="toast-root" role="status" aria-live="polite"></div>
 
 <noscript>
-  <div class="noscript">This YouTube clone needs JavaScript to load videos from YouTube.</div>
+  <div class="noscript">This MeldTube clone needs JavaScript to load videos.</div>
 </noscript>
 
-<script src="script.js?v=3"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
